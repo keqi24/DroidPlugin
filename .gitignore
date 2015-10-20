@@ -9,3 +9,5 @@
 /project/.idea
 /project/build
 /project/local.properties
+*.iml
+/project/bin
