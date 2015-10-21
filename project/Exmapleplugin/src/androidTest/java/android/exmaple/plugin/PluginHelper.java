@@ -1,6 +1,7 @@
 package android.exmaple.plugin;
 
 import android.content.Context;
+import android.exmaple.plugin.core.PluginProcessManager;
 import android.util.Log;
 
 /**
