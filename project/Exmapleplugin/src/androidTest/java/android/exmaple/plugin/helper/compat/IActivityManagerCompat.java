@@ -20,13 +20,32 @@
 **
 **/
 
-package android.exmpale.plugin.pm;
+package android.exmaple.plugin.helper.compat;
 
 /**
- * API for package data change related callbacks from the Package Manager.
- * Some usage scenarios include deletion of cache directory, generate
- * statistics related to code, data, cache usage
+ * Created by Andy Zhang(zhangyong232@gmail.com) on 2015/5/1.
  */
-oneway interface IPackageDataObserver {
-    void onRemoveCompleted(in String packageName, boolean succeeded);
+public class IActivityManagerCompat {
+
+    private static Class sClass;
+
+    public static Class Class() throws ClassNotFoundException {
+        if (sClass == null) {
+            sClass = Class.forName("android.app.IActivityManager");
+        }
+        return sClass;
+    }
+
+    public static boolean isIActivityManager(Object obj){
+        if (obj == null) {
+            return false;
+        } else {
+            try {
+                Class clazz = Class();
+                return clazz.isInstance(obj);
+            } catch (ClassNotFoundException e) {
+                return false;
+            }
+        }
+    }
 }

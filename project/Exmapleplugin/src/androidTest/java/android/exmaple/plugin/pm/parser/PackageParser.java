@@ -33,10 +33,10 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
 import android.content.pm.Signature;
+import android.exmaple.plugin.helper.compat.SystemPropertiesCompat;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
-import com.morgoo.helper.compat.SystemPropertiesCompat;
 
 import java.io.File;
 import java.util.HashSet;

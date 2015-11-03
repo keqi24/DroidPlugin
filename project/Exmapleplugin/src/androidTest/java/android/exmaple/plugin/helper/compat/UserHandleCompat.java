@@ -20,13 +20,24 @@
 **
 **/
 
-package android.exmpale.plugin.pm;
+package android.exmaple.plugin.helper.compat;
+
+import android.exmaple.plugin.reflect.MethodUtils;
+import android.os.UserHandle;
+
 
 /**
- * API for package data change related callbacks from the Package Manager.
- * Some usage scenarios include deletion of cache directory, generate
- * statistics related to code, data, cache usage
+ * Created by Andy Zhang(zhangyong232@gmail.com) on 2015/4/13.
  */
-oneway interface IPackageDataObserver {
-    void onRemoveCompleted(in String packageName, boolean succeeded);
+public class UserHandleCompat {
+
+    //    UserHandle.getCallingUserId()
+    public static int getCallingUserId() {
+        try {
+            return (int) MethodUtils.invokeStaticMethod(UserHandle.class, "getCallingUserId");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

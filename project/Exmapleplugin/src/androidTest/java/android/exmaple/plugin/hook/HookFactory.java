@@ -25,6 +25,7 @@ package android.exmaple.plugin.hook;
 import android.app.Application;
 import android.content.Context;
 import android.exmaple.plugin.helper.Log;
+import android.exmaple.plugin.hook.proxy.IActivityManagerHook;
 import android.exmaple.plugin.hook.proxy.IPackageManagerHook;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
@@ -124,7 +125,7 @@ public class HookFactory {
 //        }
 
         installHook(new IPackageManagerHook(context), classLoader);
-//        installHook(new IActivityManagerHook(context), classLoader);
+        installHook(new IActivityManagerHook(context), classLoader);
 //        installHook(new PluginCallbackHook(context), classLoader);
 //        installHook(new InstrumentationHook(context), classLoader);
 //        installHook(new LibCoreHook(context), classLoader);

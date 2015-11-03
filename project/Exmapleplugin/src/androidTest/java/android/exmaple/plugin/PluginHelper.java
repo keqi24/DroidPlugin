@@ -25,6 +25,7 @@ package android.exmaple.plugin;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.ServiceConnection;
+import android.exmaple.plugin.core.PluginProcessManager;
 import android.exmaple.plugin.helper.Log;
 import android.exmaple.plugin.pm.PluginManager;
 import android.exmaple.plugin.reflect.FieldUtils;

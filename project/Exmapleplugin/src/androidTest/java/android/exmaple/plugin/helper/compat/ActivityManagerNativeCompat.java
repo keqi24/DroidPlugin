@@ -20,13 +20,28 @@
 **
 **/
 
-package android.exmpale.plugin.pm;
+package android.exmaple.plugin.helper.compat;
+
+
+import android.exmaple.plugin.reflect.MethodUtils;
+
+import java.lang.reflect.InvocationTargetException;
 
 /**
- * API for package data change related callbacks from the Package Manager.
- * Some usage scenarios include deletion of cache directory, generate
- * statistics related to code, data, cache usage
+ * Created by Andy Zhang(zhangyong232@gmail.com) on 2015/5/1.
  */
-oneway interface IPackageDataObserver {
-    void onRemoveCompleted(in String packageName, boolean succeeded);
+public class ActivityManagerNativeCompat {
+
+    private static Class sClass;
+
+    public static Class Class() throws ClassNotFoundException {
+        if (sClass == null) {
+            sClass = Class.forName("android.app.ActivityManagerNative");
+        }
+        return sClass;
+    }
+
+    public static Object getDefault() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        return MethodUtils.invokeStaticMethod(Class(), "getDefault");
+    }
 }

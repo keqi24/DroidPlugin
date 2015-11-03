@@ -20,7 +20,7 @@
 **
 **/
 
-package com.morgoo.droidplugin.pm;
+package android.exmpale.plugin.pm;
 
 import android.content.ComponentName;
 import android.content.Intent;

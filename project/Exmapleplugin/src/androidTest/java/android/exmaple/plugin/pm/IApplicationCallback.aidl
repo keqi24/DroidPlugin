@@ -22,7 +22,7 @@
 
 
 
-package com.morgoo.droidplugin.pm;
+package android.exmpale.plugin.pm;
 
 /**
  * API for package data change related callbacks from the Package Manager.

@@ -33,13 +33,13 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
 import android.content.pm.Signature;
+import android.exmaple.plugin.helper.Log;
+import android.exmaple.plugin.helper.compat.UserHandleCompat;
+import android.exmaple.plugin.reflect.FieldUtils;
+import android.exmaple.plugin.reflect.MethodUtils;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
-import com.morgoo.droidplugin.reflect.FieldUtils;
-import com.morgoo.droidplugin.reflect.MethodUtils;
-import com.morgoo.helper.Log;
-import com.morgoo.helper.compat.UserHandleCompat;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
