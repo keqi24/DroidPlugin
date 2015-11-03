@@ -22,7 +22,8 @@
 
 package android.exmaple.plugin.helper.compat;
 
-import com.morgoo.droidplugin.reflect.MethodUtils;
+
+import android.exmaple.plugin.reflect.MethodUtils;
 
 import java.lang.reflect.InvocationTargetException;
 

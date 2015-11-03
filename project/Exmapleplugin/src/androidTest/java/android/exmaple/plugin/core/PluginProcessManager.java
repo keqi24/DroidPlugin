@@ -37,9 +37,15 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
+import android.exmaple.plugin.helper.Log;
 import android.exmaple.plugin.helper.compat.ActivityThreadCompat;
+import android.exmaple.plugin.helper.compat.CompatibilityInfoCompat;
+import android.exmaple.plugin.helper.compat.ProcessCompat;
+import android.exmaple.plugin.hook.HookFactory;
+import android.exmaple.plugin.pm.PluginManager;
 import android.exmaple.plugin.reflect.FieldUtils;
 import android.exmaple.plugin.reflect.MethodUtils;
+import android.exmaple.plugin.stub.ActivityStub;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Handler;
@@ -115,13 +121,13 @@ public class PluginProcessManager {
                 }
             }
 
-            if (packageInfo.services != null) {
-                for (ServiceInfo info : packageInfo.services) {
-                    if (!sProcessList.contains(info.processName) && info.processName != null && info.name != null && info.name.indexOf(ServiceStub.class.getSimpleName()) < 0) {
-                        sProcessList.add(info.processName);
-                    }
-                }
-            }
+//            if (packageInfo.services != null) {
+//                for (ServiceInfo info : packageInfo.services) {
+//                    if (!sProcessList.contains(info.processName) && info.processName != null && info.name != null && info.name.indexOf(ServiceStub.class.getSimpleName()) < 0) {
+//                        sProcessList.add(info.processName);
+//                    }
+//                }
+//            }
 
             if (packageInfo.activities != null) {
                 for (ActivityInfo info : packageInfo.activities) {
@@ -172,7 +178,8 @@ public class PluginProcessManager {
                 if (containsKeyObj instanceof Boolean && !(Boolean) containsKeyObj) {
                     final Object loadedApk;
                     if (VERSION.SDK_INT >= VERSION_CODES.HONEYCOMB) {
-                        loadedApk = MethodUtils.invokeMethod(object, "getPackageInfoNoCheck", pluginInfo.applicationInfo, CompatibilityInfoCompat.DEFAULT_COMPATIBILITY_INFO());
+                        loadedApk = MethodUtils.invokeMethod(object, "getPackageInfoNoCheck", pluginInfo.applicationInfo, CompatibilityInfoCompat
+                                .DEFAULT_COMPATIBILITY_INFO());
                     } else {
                         loadedApk = MethodUtils.invokeMethod(object, "getPackageInfoNoCheck", pluginInfo.applicationInfo);
                     }
@@ -201,6 +208,7 @@ public class PluginProcessManager {
             }
         }
         if (found) {
+            //here add a new application to ActivityThread's mAllAppliations
             PluginProcessManager.preMakeApplication(hostContext, pluginInfo);
         }
     }

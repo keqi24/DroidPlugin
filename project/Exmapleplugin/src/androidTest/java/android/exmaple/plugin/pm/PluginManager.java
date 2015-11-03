@@ -38,14 +38,12 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.exmaple.plugin.PluginManagerService;
+import android.exmaple.plugin.helper.Log;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
-
-import com.morgoo.droidplugin.PluginManagerService;
-import com.morgoo.droidplugin.reflect.MethodUtils;
-import com.morgoo.helper.Log;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

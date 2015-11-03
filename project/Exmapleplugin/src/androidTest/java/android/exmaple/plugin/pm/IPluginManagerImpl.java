@@ -39,6 +39,10 @@ import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.pm.Signature;
+import android.exmaple.plugin.core.PluginDirHelper;
+import android.exmaple.plugin.helper.Log;
+import android.exmaple.plugin.pm.parser.IntentMatcher;
+import android.exmaple.plugin.pm.parser.PluginPackageParser;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
@@ -47,15 +51,6 @@ import android.os.Build.VERSION_CODES;
 import android.os.RemoteException;
 import android.text.TextUtils;
 
-import com.morgoo.droidplugin.am.BaseActivityManagerService;
-import com.morgoo.droidplugin.am.MyActivityManagerService;
-import com.morgoo.droidplugin.core.PluginClassLoader;
-import com.morgoo.droidplugin.core.PluginDirHelper;
-import com.morgoo.droidplugin.pm.parser.IntentMatcher;
-import com.morgoo.droidplugin.pm.parser.PluginPackageParser;
-import com.morgoo.helper.Log;
-import com.morgoo.helper.Utils;
-import com.morgoo.helper.compat.PackageManagerCompat;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -391,7 +386,8 @@ public class IPluginManagerImpl extends IPluginManager.Stub {
         try {
             enforcePluginFileExists();
             if (shouldNotBlockOtherInfo()) {
-                List<ResolveInfo> infos = IntentMatcher.resolveIntent(mContext, mPluginCache, intent, resolvedType, flags);
+                List<ResolveInfo> infos = IntentMatcher.resolveIntent(mContext, mPluginCache, intent, resolvedType,
+                        flags);
                 if (infos != null && infos.size() > 0) {
                     return IntentMatcher.findBest(infos);
                 }
